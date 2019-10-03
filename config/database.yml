@@ -4,12 +4,19 @@ default: &default
  collation: utf8mb4_bin
  reconnect: false
  pool: 50
- username: root
- password: pariganaka6
+ username: <%= ENV['DB_USERNAME'] %>
+ password: <%= ENV['DB_PASSWORD'] %>
+ port: <%= ENV['DB_PORT'] %>
+ host: <%= ENV['DB_HOST'] %>
+
 
 development:
  <<: *default
- database: mysql_docker_development
+ database: <%= ENV['DB_DATABASE'] %>_development
+
+staging:
+  <<: *default
+  database: <% ENV['DB_DATABASE'] %>_staging
 
 production:
  <<: *default

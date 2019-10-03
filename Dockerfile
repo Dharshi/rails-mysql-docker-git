@@ -5,12 +5,12 @@ RUN apk update && apk upgrade && apk add ruby ruby-json ruby-io-console ruby-bun
 RUN mkdir /app
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile  /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+
 RUN gem install ovirt-engine-sdk -v '4.3.0' --source 'https://rubygems.org/'
 RUN bundle install --binstubs
 
-COPY . .
-
-EXPOSE 3000
+COPY . /app
 
 ENTRYPOINT ["sh", "./config/docker/startup.sh"]
