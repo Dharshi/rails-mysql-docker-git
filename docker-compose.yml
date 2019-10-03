@@ -30,6 +30,9 @@ services:
      DB_PORT: 3306
      DB_HOST: db
      RAILS_MAX_THREADS: 5
+     REDIS_URL: "redis://redis:6379/12"
+     RAILS_ENV: 'development'
+
    volumes:
       - ".:/app"
 
@@ -38,11 +41,12 @@ services:
       - "db"
       - "redis"
    build: .
-   command: sidekiq
+   command: 'bundle exec sidekiq'
    volumes:
       - ".:/app"
    environment:
-     REDIS_URL: redis://redis:6379/0
+     REDIS_URL: redis://redis:6379/12
+     RAILS_ENV: 'development'
 
 volumes:
  redis:
