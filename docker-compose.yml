@@ -47,6 +47,11 @@ services:
    environment:
      REDIS_URL: redis://redis:6379/12
      RAILS_ENV: 'development'
+     DB_USERNAME: root
+     DB_PASSWORD: root
+     DB_DATABASE: sample
+     DB_PORT: 3306
+     DB_HOST: db
 
 volumes:
  redis:

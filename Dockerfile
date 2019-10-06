@@ -13,4 +13,4 @@ RUN bundle install --binstubs
 
 COPY . /app
 
-ENTRYPOINT ["sh", "./config/docker/startup.sh"]
+# ENTRYPOINT ["sh", "./config/docker/startup.sh"]
