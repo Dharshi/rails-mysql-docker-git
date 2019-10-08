@@ -1,4 +1,6 @@
+sudo: required
 language: ruby
+dist: trusty
 rvm:
   - 2.5.6
 before_script:
@@ -7,6 +9,6 @@ script: bundle exec rake test:all
 addons:
   apt:
     packages:
-    - mysql-server-5.6
-    - mysql-client-core-5.6
-    - mysql-client-5.6
+    - mysql-server-5.7
+    - mysql-client-core-5.7
+    - mysql-client-5.7
