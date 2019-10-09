@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -ev
 
 echo TRAVIS_TAG=$TRAVIS_TAG
