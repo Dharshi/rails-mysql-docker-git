@@ -11,3 +11,9 @@ before_script:
   - mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u travis mysql
   - mysql -u travis -e "SET GLOBAL time_zone = 'Australia/Sydney';"
 script: bundle exec rake test
+deploy:
+  provider: script
+  script:
+    - sudo ./script/run-docker-builds.sh
+  on:
+    tags: true
