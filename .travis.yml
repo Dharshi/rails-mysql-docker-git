@@ -13,7 +13,6 @@ before_script:
 script: bundle exec rake test
 deploy:
   provider: script
-  script:
-    - sudo ./script/run-docker-builds.sh
+  script: bash ./script/run-docker-builds.sh
   on:
     tags: true
